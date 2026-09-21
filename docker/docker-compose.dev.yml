@@ -19,7 +19,7 @@ services:
     # was a shell that never execs and never forwards the signal: docker stop
     # waited out the grace period and killed the app instead of letting it
     # shut down cleanly.
-    command: [ "sh", "/workspace/docker/entrypoints/development_entrypoint.sh" ]
+    command: ["sh", "/workspace/docker/entrypoints/development_entrypoint.sh"]
     networks:
       - uvlhub_network
 
@@ -32,7 +32,7 @@ services:
       dockerfile: docker/images/Dockerfile.mariadb
     restart: always
     ports:
-      - "3306:3306"
+      - "127.0.0.1:3307:3306"
     volumes:
       - db_data:/var/lib/mysql
     networks:
